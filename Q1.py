@@ -1,0 +1,21 @@
+import tkinter as tk
+def calculate_gst():
+    original_cost = float(original_cost_entry.get())
+    net_price = float(net_price_entry.get())
+    gst_rate = ((net_price - original_cost) * 100) / original_cost
+    gst_result_label.config(text=f"GST rate: {gst_rate:.2f}%")
+root = tk.Tk()
+root.title("GST Tax Finder Calculator")
+original_cost_label = tk.Label(root, text="Original Cost:")
+original_cost_label.grid(row=0, column=0)
+original_cost_entry = tk.Entry(root)
+original_cost_entry.grid(row=0, column=1)
+net_price_label = tk.Label(root, text="Net Price:")
+net_price_label.grid(row=1, column=0)
+net_price_entry = tk.Entry(root)
+net_price_entry.grid(row=1, column=1)
+calculate_button = tk.Button(root, text="Calculate", command=calculate_gst)
+calculate_button.grid(row=2, column=0, columnspan=2, pady=10)
+gst_result_label = tk.Label(root, text="")
+gst_result_label.grid(row=3, column=0, columnspan=2)
+root.mainloop()

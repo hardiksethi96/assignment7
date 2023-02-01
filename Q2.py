@@ -1,0 +1,20 @@
+import tkinter as tk
+import calendar
+def show_calendar():
+    year = int(year_entry.get())
+    cal = calendar.calendar(year)
+    calendar_text.config(state="normal")
+    calendar_text.delete("1.0", tk.END)
+    calendar_text.insert(tk.END, cal)
+    calendar_text.config(state="disabled")
+root = tk.Tk()
+root.title("Calendar Application")
+year_label = tk.Label(root, text="Enter Year:")
+year_label.grid(row=0, column=0)
+year_entry = tk.Entry(root)
+year_entry.grid(row=0, column=1)
+show_button = tk.Button(root, text="Show Calendar", command=show_calendar)
+show_button.grid(row=1, column=0, columnspan=2, pady=10)
+calendar_text = tk.Text(root, width=75, height=20, state="disabled")
+calendar_text.grid(row=2, column=0, columnspan=2)
+root.mainloop()
